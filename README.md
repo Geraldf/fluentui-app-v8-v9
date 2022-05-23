@@ -42,7 +42,7 @@ export const App: React.FunctionComponent = () => {
 
 You should now see "@fluentui/react-components": "^9.0.0-rc.11" in the dependencies of package.json.
 
-# Create application layout
+# Create the application layout
 
 The application will have a typical single-page-application (SPA) layout.
 There will be header, content, and footer rows.
@@ -97,4 +97,8 @@ export const App: React.FunctionComponent = () => {
 };
 
 ```
+
+This will create this layout:
+
+![The app layout](screenshots/app-layout.png)
 
