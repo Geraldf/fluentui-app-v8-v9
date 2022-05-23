@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@fluentui/react-components";
 import { Details } from "./Details";
+import { Navigation } from "./Navigation";
 
 // makestyles defines CSS-in-JS styles that can be build-time optimized for minimal bundle size.
 const useStyles = makeStyles({
@@ -40,7 +41,7 @@ export const App: React.FunctionComponent = () => {
     <div className={styles.app}>
       <div className={styles.header}>This is the header</div>
       <div className={styles.content}>
-        <div className={styles.nav}>This is the navigation pane.</div>
+        <div className={styles.nav}><Navigation/></div>
         <div className={styles.details}><Details /></div>
       </div>
       <div className={styles.footer}>This is the footer</div>
