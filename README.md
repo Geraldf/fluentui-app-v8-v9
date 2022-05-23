@@ -2,6 +2,12 @@
 
 This takes you through the steps of creating a Fluent UI React web application that uses v8 and v9 side-by-side. At the time of this writing, v9 latest is 9.0.0.rc-11.
 
+When starting a new application that uses both v8 and v9, there are guidelines that will help you get the most value from v9 while avoiding the pitfalls and incompatibilities of v8:
+- Avoid using the styles property and JS style objects with v8 components.
+- Do not use the Stack component from v8. Do layout with CSS grid and flex.
+- Follow the v9 styling, hooks, and infrastructure patterns when building a component from scratch.
+- When implementing render props callbacks with v8 components, keep in mind that v9 components use slots and children. The more portable you make your code to map functions in the future, the better off you will be. 
+
 # Create the v8 application
 
 1. Use the create react app (CRA) template
