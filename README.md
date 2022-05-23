@@ -25,12 +25,10 @@ This takes you through the steps of creating a Fluent UI React web application t
 5. Verify the app still runs with `yarn start`
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 export const App: React.FunctionComponent = () => {
-  return (
-    <div>Hello Fluent UI React v9</div>
-  );
+  return <div>Hello Fluent UI React v9</div>;
 };
 ```
 
@@ -48,7 +46,7 @@ The application will have a typical single-page-application (SPA) layout.
 There will be header, content, and footer rows.
 The content will be divided into navigation and details columns.
 
-1. Define the styles using makeStyles from react-components.  
+1. Use makestyles to define the top-level application layout
 
 ```tsx
 import React from "react";
@@ -63,7 +61,7 @@ const useStyles = makeStyles({
     height: "100%",
   },
   header: {
-    backgroundColor: 'lightblue',
+    backgroundColor: "lightblue",
   },
   content: {
     display: "grid",
@@ -77,8 +75,8 @@ const useStyles = makeStyles({
     backgroundColor: "lightcoral",
   },
   footer: {
-    backgroundColor: 'lavender'
-  }
+    backgroundColor: "lavender",
+  },
 });
 
 export const App: React.FunctionComponent = () => {
@@ -95,10 +93,59 @@ export const App: React.FunctionComponent = () => {
     </div>
   );
 };
-
 ```
 
 This will create this layout:
 
 ![The app layout](screenshots/app-layout.png)
 
+2. Create a new Details.tsx component with content and output rows
+
+```tsx
+import React from "react";
+import { makeStyles } from "@fluentui/react-components";
+
+const useStyles = makeStyles({
+  details: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gridTemplateRows: "1fr auto",
+    height: "100%",
+  },
+  content: {
+    backgroundColor: "lightcoral",
+  },
+  output: {
+    backgroundColor: "paleturquoise",
+    minHeight: "200px",
+  },
+});
+
+export const Details: React.FunctionComponent = () => {
+  const styles = useStyles();
+
+  return (
+    <div className={styles.details}>
+      <div className={styles.content}>This is the details content pane</div>
+      <div className={styles.output}>This is the details output pane</div>
+    </div>
+  );
+};
+```
+
+Use the Details component in App.tsx
+
+```tsx
+//...
+<div className={styles.content}>
+  <div className={styles.nav}>This is the navigation pane.</div>
+  <div className={styles.details}>
+    <Details />
+  </div>
+</div>
+//...
+```
+
+You should now see this layout:
+
+![Details layout](screenshots/details-layout.png)
