@@ -33,3 +33,11 @@ export const App: React.FunctionComponent = () => {
   );
 };
 ```
+
+# Add the v9 react-components package
+
+1. Add react-components
+
+`yarn add @fluentui/react-components`
+
+You should now see "@fluentui/react-components": "^9.0.0-rc.11" in the dependencies of package.json.
