@@ -12,15 +12,15 @@ import { ThemeProvider } from "@fluentui/react";
 
 const themeProviderStyle = {
   height: "100%",
-    width: "100%",
-}
+  width: "100%",
+};
 
 // makestyles defines CSS-in-JS styles that can be build-time optimized for minimal bundle size.
 const useStyles = makeStyles({
   app: {
     backgroundColor: tokens.colorNeutralBackground1,
     display: "grid",
-    gridTemplateColumns: "1fr",
+    gridTemplateColumns: "1fr ",
     gridTemplateRows: "auto 1fr auto",
     height: "100%",
     width: "100%",
@@ -38,6 +38,8 @@ const useStyles = makeStyles({
     gridTemplateRows: "1fr",
   },
   nav: {
+    width: "80px",
+
     ...shorthands.borderRight(
       tokens.strokeWidthThin,
       "solid",

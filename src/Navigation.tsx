@@ -5,15 +5,14 @@ import { List } from "@fluentui/react";
 const useStyles = makeStyles({
   navigation: {
     display: "grid",
-    gridTemplateColumns: "1fr",
+    gridTemplateColumns: "1fr ",
     gridTemplateRows: "auto 1fr",
     height: "100%",
   },
   header: {
     fontSize: "22px",
   },
-  list: {
-  },
+  list: {},
   customer: {
     ...shorthands.padding("15px", "5px"),
   },
@@ -52,7 +51,7 @@ export const Navigation: React.FunctionComponent = () => {
 
   const onRenderCustomer = (item?: CustomerListItem): ReactNode => {
     if (item) {
-    // v9 styles can be used when rendering item in v8 render props callbacks
+      // v9 styles can be used when rendering item in v8 render props callbacks
       return (
         <div className={styles.customer} key={item.key}>
           {item.name}

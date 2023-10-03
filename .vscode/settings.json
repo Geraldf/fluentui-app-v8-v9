@@ -1,0 +1,5 @@
+{
+  "appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+  "appService.defaultWebAppToDeploy": "/subscriptions/87c05cf4-521c-4108-82e4-4daf2bcf8ecc/resourceGroups/Main/providers/Microsoft.Web/sites/fuchsclan",
+  "appService.deploySubpath": "."
+}
