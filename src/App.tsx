@@ -1,60 +1,8 @@
 import React from "react";
-import {
-  FluentProvider,
-  makeStyles,
-  shorthands,
-  tokens,
-  webLightTheme,
-} from "@fluentui/react-components";
-import { Details } from "./Details";
-import { Navigation } from "./Navigation";
-import { ThemeProvider } from "@fluentui/react";
-
-const themeProviderStyle = {
-  height: "100%",
-  width: "100%",
-};
-
-// makestyles defines CSS-in-JS styles that can be build-time optimized for minimal bundle size.
-const useStyles = makeStyles({
-  app: {
-    backgroundColor: tokens.colorNeutralBackground1,
-    display: "grid",
-    gridTemplateColumns: "1fr ",
-    gridTemplateRows: "auto 1fr auto",
-    height: "100%",
-    width: "100%",
-  },
-  header: {
-    ...shorthands.borderBottom(
-      tokens.strokeWidthThin,
-      "solid",
-      tokens.colorNeutralStroke1
-    ),
-  },
-  content: {
-    display: "grid",
-    gridTemplateColumns: "30% 70%",
-    gridTemplateRows: "1fr",
-  },
-  nav: {
-    width: "80px",
-
-    ...shorthands.borderRight(
-      tokens.strokeWidthThin,
-      "solid",
-      tokens.colorNeutralStroke1
-    ),
-  },
-  details: {},
-  footer: {
-    ...shorthands.borderTop(
-      tokens.strokeWidthThin,
-      "solid",
-      tokens.colorNeutralStroke1
-    ),
-  },
-});
+import { FluentProvider } from "@fluentui/react-components";
+import { fc_lightTheme } from "./styles/theme_fuchsclan";
+//import "./styles/app.css";
+import { useStyles } from "./styles/AppStyles";
 
 export const App: React.FunctionComponent = () => {
   // The makestyles function returns a function that returns a hook.
@@ -62,19 +10,15 @@ export const App: React.FunctionComponent = () => {
   const styles = useStyles();
 
   return (
-    <ThemeProvider style={themeProviderStyle}>
-      <FluentProvider className={styles.app} theme={webLightTheme}>
-        <div className={styles.header}>This is the header</div>
-        <div className={styles.content}>
-          <div className={styles.nav}>
-            <Navigation />
-          </div>
-          <div className={styles.details}>
-            <Details />
-          </div>
+    <FluentProvider className={styles.app} theme={fc_lightTheme}>
+      <div className="App">
+        <div className="header">Header</div>
+        <div className="body">
+          <div className="content">content</div>
+          <div className="sidebar">sidebar</div>
         </div>
-        <div className={styles.footer}>This is the footer</div>
-      </FluentProvider>
-    </ThemeProvider>
+        <div className="footer">fuuter</div>
+      </div>
+    </FluentProvider>
   );
 };

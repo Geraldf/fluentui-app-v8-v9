@@ -1,0 +1,1 @@
+https://medium.com/@gmonne/simple-app-layout-with-office-ui-fabric-react-2eac6361e1b4

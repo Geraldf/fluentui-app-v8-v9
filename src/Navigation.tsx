@@ -1,18 +1,33 @@
 import React, { ReactNode } from "react";
-import { makeStyles, shorthands } from "@fluentui/react-components";
+import {
+  makeStyles,
+  shorthands,
+  Text,
+  Title3,
+  tokens,
+} from "@fluentui/react-components";
 import { List } from "@fluentui/react";
 
 const useStyles = makeStyles({
+  title: {
+    backgroundColor: tokens.colorBrandBackground,
+    color: tokens.colorNeutralForegroundInverted,
+  },
+
   navigation: {
-    display: "grid",
+    display: "flex",
     gridTemplateColumns: "1fr ",
     gridTemplateRows: "auto 1fr",
     height: "100%",
+    backgroundColor: tokens.colorNeutralBackground3,
   },
   header: {
     fontSize: "22px",
   },
-  list: {},
+  list: {
+    backgroundColor: "#d62727",
+    height: "100%",
+  },
   customer: {
     ...shorthands.padding("15px", "5px"),
   },
@@ -21,6 +36,10 @@ const useStyles = makeStyles({
 type CustomerListItem = {
   key: string;
   name: string;
+};
+
+type NavProps = {
+  title?: string;
 };
 
 const items: CustomerListItem[] = [
@@ -46,7 +65,9 @@ const items: CustomerListItem[] = [
   },
 ];
 
-export const Navigation: React.FunctionComponent = () => {
+export const Navigation: React.FunctionComponent<NavProps> = (
+  props: NavProps
+) => {
   const styles = useStyles();
 
   const onRenderCustomer = (item?: CustomerListItem): ReactNode => {
@@ -64,10 +85,10 @@ export const Navigation: React.FunctionComponent = () => {
 
   // This uses the v8 List component
   return (
-    <div className={styles.navigation}>
-      <div className={styles.header}>Customers</div>
+    <div>
       <div className={styles.list}>
-        <List items={items} onRenderCell={onRenderCustomer} />
+        &nbsp;
+        {/* <List items={items} onRenderCell={onRenderCustomer} /> */}
       </div>
     </div>
   );
